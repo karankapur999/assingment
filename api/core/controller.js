@@ -14,8 +14,8 @@ controller.fetchRecords = async function (req, res) {
         let whereQuery = {};
         let size = 10;
         let skip = 0;
-        if(req.query.size)  size =  req.query.size;
-        if(req.query.page)  skip =  req.query.page * size;
+        if(req.query.size)  size =  parseInt(req.query.size);
+        if(req.query.page)  skip =  parseInt(req.query.page) * size;
 
         if( req.query.startDate  ){
             req.query.startDate = new Date(req.query.startDate);
