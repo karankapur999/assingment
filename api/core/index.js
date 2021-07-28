@@ -36,4 +36,7 @@ var controller = require('./controller');
 router.get('/records', [authenticated(),  validateRequest(fetchRecords, 'query')], controller.fetchRecords);
 
 
+router.get('/healthcheck', controller.healthCheck);
+
+
 module.exports = router;
