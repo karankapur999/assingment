@@ -35,7 +35,7 @@ controller.fetchRecords = async function (req, res) {
         if( req.query.maxCount  ){
             whereQuery['totalCount'] = { $gte:  parseFloat(req.query.maxCount) }
         }
-        if( req.query.minCount && req.query.endmaxCountDate   ){
+        if( req.query.minCount && req.query.maxCount   ){
             whereQuery['totalCount'] = { $gte:  parseFloat(req.query.minCount), $lte:  parseFloat(req.query.maxCount)  }
         }
         let data = await coreDBA.getRecords(whereQuery, skip, size);
